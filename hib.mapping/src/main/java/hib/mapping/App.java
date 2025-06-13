@@ -1,5 +1,8 @@
 package hib.mapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,13 +22,21 @@ public class App
         Session sess = factory.openSession();
         Transaction tx = sess.beginTransaction();
         
-        Person p = new Person();
-        Aadhaar a= new Aadhaar(111,"amit","pune","M","12/06/2022",p);
-        p.setId(1);
-        p.setAadhaarCard(a);
+        Company c = new Company();
         
-        sess.persist(a);
-        sess.persist(p);
+        Employee e1 = new Employee(101, "amit", "dev", 25000, c);
+        Employee e2 = new Employee(202, "deepak", "ops", 15000, c);
+        
+        List<Employee> empList = new ArrayList<Employee>();
+        empList.add(e1);
+        empList.add(e2);
+        
+        c.setcId(1);
+        c.setEmpList(empList);
+        
+        sess.persist(c);
+        sess.persist(e1);
+        sess.persist(e2);
         
         tx.commit();
     }

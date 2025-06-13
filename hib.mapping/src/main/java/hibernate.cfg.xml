@@ -13,8 +13,8 @@
         <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
 
-		<mapping class = "hib.mapping.Person" />
-		<mapping class = "hib.mapping.Aadhaar" />
+		<mapping class = "hib.mapping.Employee" />
+		<mapping class = "hib.mapping.Company" />
 		
     </session-factory>
 		
